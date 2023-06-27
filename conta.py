@@ -1,23 +1,11 @@
+class Conta:
+    def __init__(self, numero, titular, saldo, limite): #init é uma função construntora
+        print("Construindo Objeto {} ".format(self))
+        self.numero = numero
+        self.titular = titular
+        self.saldo = saldo
+        self.limite = limite
 
-def criarconta(Numero, titular, saldo, limite):
-    conta = {'Numero': Numero, "titular": titular, "saldo":saldo, "limite": limite}
-    return conta
+conta = Conta(321, "Anicele", 100, 2000)
 
-
-def depositar(conta, valor):
-    conta['saldo'] += valor
-
-
-def sacar(conta, valor):
-    conta['saldo'] += valor
-
-def extrato(conta):
-    print("O saldo da é conta é {}".format(conta['saldo']))
-
-conta_anicele = criarconta(25, "Anicele", 1000, 20000)
-
-print(conta_anicele)
-
-depositar(conta_anicele, 200)
-
-extrato(conta_anicele)
+print(conta.saldo)
