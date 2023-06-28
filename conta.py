@@ -1,28 +1,29 @@
 class Conta:
     def __init__(self, numero, titular, saldo, limite): #init é uma função construntora
-        print("Construindo Objeto {} ".format(self))
         self.__numero = numero
         self.__titular = titular
         self.__saldo = saldo
         self.__limite = limite
     def extrato(self):
-        print("Olá {}, seu saldo é: {}".format(self.__titular, self.__saldo))
+        print("Olá {}, seu saldo é de: {} reais".format(self.__titular, self.__saldo))
     def sacar(self, valor):
         self.__saldo -= valor
     def depositar(self, valor):
         self.__saldo += valor
+    def transferir(self, valor, conta2):
+        self.sacar(valor)
+        conta2.depositar(valor)
 
-conta_Mateus = Conta(2112, "Mateus", 700, 360)
 
-saque = float(input("Quanto vc deseja sacar?"))
+conta_mateus = Conta(123, 'Mateus', 500, 1000)
+conta_anicele = Conta(321, 'Anicele', 700, 2000 )
 
-conta_Mateus.sacar(saque)
+conta_mateus.extrato()
+conta_anicele.extrato()
 
-conta_Mateus.extrato()
+conta_mateus.transferir(100, conta_anicele)
 
-deposito = float(input("Quanto vc deseja depositar?"))
+print("-----------------------------------")
 
-conta_Mateus.depositar(deposito)
-
-conta_Mateus.extrato()
-
+conta_mateus.extrato()
+conta_anicele.extrato()
