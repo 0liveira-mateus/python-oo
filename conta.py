@@ -16,36 +16,23 @@ class Conta:
 # Get só retorna um valor, set atribui um novo valor aquele atributo
     def get_saldo(self):
         return self.__saldo
-    def get_limite(self):
+    def get_titular(self):
+        return self.__titular
+    @property
+    def limite(self):
+        print("Limite de {}".format(self.__limite))
         return self.__limite
-    def set_limite(self, valor):
+    @limite.setter
+    def limite(self, valor):
         self.__limite = valor
 
 
 
+
 conta_mateus = Conta(123, 'Mateus', 500, 1000)
-conta_anicele = Conta(321, 'Anicele', 700, 2000 )
 
-conta_mateus.extrato()
-conta_anicele.extrato()
+conta_mateus.limite
 
-conta_mateus.transferir(100, conta_anicele)
+conta_mateus.limite = 200
 
-print("-----------------------------------")
-
-conta_mateus.extrato()
-conta_anicele.extrato()
-
-print("-----------------------------------")
-
-print(conta_mateus.get_limite())
-print(conta_anicele.get_limite())
-
-conta_mateus.set_limite(3000)
-conta_anicele.set_limite(4000)
-
-print("-----------------------------------")
-
-print(conta_mateus.get_limite())
-print(conta_anicele.get_limite())
-
+conta_mateus.limite
