@@ -26,13 +26,28 @@ class Conta:
     def limite(self, valor):
         self.__limite = valor
 
-
-
-
 conta_mateus = Conta(123, 'Mateus', 500, 1000)
+conta_anicele = Conta(321, 'Anicele', 700, 2000 )
+
+conta_mateus.extrato()
+conta_anicele.extrato()
+
+conta_mateus.transferir(100, conta_anicele)
+
+print("-----------------------------------")
+
+conta_mateus.extrato()
+conta_anicele.extrato()
+
+print("-----------------------------------")
 
 conta_mateus.limite
 
-conta_mateus.limite = 200
+conta_mateus.limite = 3000
+conta_anicele.limite = 4000
+
+print("-----------------------------------")
 
 conta_mateus.limite
+conta_anicele.limite
+
