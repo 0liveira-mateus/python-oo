@@ -6,8 +6,13 @@ class Conta:
         self.__limite = limite
     def extrato(self):
         print("Olá {}, seu saldo é de: {} reais".format(self.__titular, self.__saldo))
+    def pode_sacar(self, valor):
+        if valor <= self.__saldo + self.__limite:
+            print("Sancando R${} reais". format(valor))
+        else:
+            print("Valor indisponivel para sacar")
     def sacar(self, valor):
-        self.__saldo -= valor
+        self.pode_sacar(valor)
     def depositar(self, valor):
         self.__saldo += valor
     def transferir(self, valor, conta2):
@@ -27,27 +32,7 @@ class Conta:
         self.__limite = valor
 
 conta_mateus = Conta(123, 'Mateus', 500, 1000)
-conta_anicele = Conta(321, 'Anicele', 700, 2000 )
 
-conta_mateus.extrato()
-conta_anicele.extrato()
+print(conta_mateus.get_saldo())
 
-conta_mateus.transferir(100, conta_anicele)
-
-print("-----------------------------------")
-
-conta_mateus.extrato()
-conta_anicele.extrato()
-
-print("-----------------------------------")
-
-conta_mateus.limite
-
-conta_mateus.limite = 3000
-conta_anicele.limite = 4000
-
-print("-----------------------------------")
-
-conta_mateus.limite
-conta_anicele.limite
-
+conta_mateus.sacar(12)
