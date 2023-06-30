@@ -30,9 +30,17 @@ class Conta:
     @limite.setter
     def limite(self, valor):
         self.__limite = valor
+    @staticmethod
+    def codigoBanco():
+        return {'BB': '001', 'Caixa': '104', 'Bradesco': '237'}
 
 conta_mateus = Conta(123, 'Mateus', 500, 1000)
 
 print(conta_mateus.get_saldo())
 
 conta_mateus.sacar(12)
+
+codigos = Conta.codigoBanco()
+
+
+print(codigos['Caixa'])
